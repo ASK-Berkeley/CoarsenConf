@@ -1,0 +1,37 @@
+# my_config.yaml
+defaults:
+  - encoder: medium_drugs #medium #small
+  - decoder: medium_drugs #medium #small
+  - vae: drugs
+  - optimizer: drugs
+  - losses: base
+  - data: drugs
+
+coordinates: delta #absolute # or delta or double
+
+hydra:
+  job:
+    env_set: 
+      CUDA_VISIBLE_DEVICES: 9 #8 #10,11,12,13 #0,1,2,3,4,5,6,7,8,9,10,11,12,13,14
+  run:
+    dir: outputs/${wandb.name}_${now:%Y-%m-%d_%H-%M-%S}
+  job_logging:
+      version: 1
+      formatters:
+        simple:
+          format: '[%(filename)s] : [%(funcName)s] : %(message)s' #[%(levelname)s] : ...
+      handlers:
+        console:
+          class: logging.StreamHandler
+          formatter: simple
+          level: INFO
+          stream: ext://sys.stdout
+      root:
+        level: INFO
+        handlers: [console, file]
+        propagate: no
+
+wandb:
+  project: MCG
+  name: DRUGS_noar_ot_all_post_restart #one_fifth_test_angle_scalar_regression_angle_all_huber_gelu
+  notes: no ar test iclr

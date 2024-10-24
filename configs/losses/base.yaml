@@ -1,0 +1,15 @@
+aligned_global_mse: True
+global_mse_weight: 2 #1
+aligned_ar_mse: True
+ar_mse_weight: 0 #1
+
+aligned_global_distance: True
+distance_weight: 0.5 #1
+aligned_ar_distance: True
+ar_distance_weight: 0 #0.3
+
+ar_loss_bottom_up: True
+
+kl_weight: 1e-3 #1
+x_cc_weight: 0
+h_cc_weight: 0

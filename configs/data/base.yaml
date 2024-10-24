@@ -1,0 +1,9 @@
+train_batch_size: 20
+val_batch_size: 20
+train_data_limit: 100
+val_data_limit: 100
+epochs: 10000
+edge_dim: 20
+
+loader:
+  type: 'torsional_diffusion'

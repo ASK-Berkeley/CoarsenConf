@@ -1,0 +1,4 @@
+kl_free_bits: 10 #5
+kl_prior_logvar_clamp: 0
+kl_softplus: True
+use_mim: False

@@ -1,0 +1,35 @@
+geometry_reg_step_size: 0.001
+geometry_regularization: True
+geom_reg_steps: 1
+n_lays: 5  # 3 5 in  good run
+debug: False
+shared_layers: False # False in good run
+noise_decay_rate: 0.5
+noise_initial: 1
+use_edge_features_in_gmn: True
+use_mean_node_features: True
+atom_emb_dim: 64 #residue_emb_dim
+latent_dim: 64 #! D
+coord_F_dim: 32 #! F 3DLinker used 12 and 5 layers
+dropout: 0.1
+nonlin: 'lkyrelu' # ['swish', 'lkyrelu']
+leakyrelu_neg_slope: 1.0e-2 # 1.0e-2 in  good run
+cross_msgs: True
+layer_norm: 'BN' # ['0', 'BN', 'LN'] # BN in good run #TODO: batch norm has issues with only 1 sample during training only
+layer_norm_coords: '0' # ['0', 'LN'] # 0 in good run
+final_h_layer_norm: '0' # ['0', 'GN', 'BN', 'LN'] # 0 in good run
+pre_crossmsg_norm_type:  '0' # ['0', 'GN', 'BN', 'LN']
+post_crossmsg_norm_type: '0' # ['0', 'GN', 'BN', 'LN']
+use_dist_in_layers: True
+skip_weight_h: 0.5 # 0.5 in good run
+x_connection_init: 0.25 # 0.25 in good run
+random_vec_dim: 0 # set to 0 to have no stochasticity
+random_vec_std: 1
+use_scalar_features: False # Have a look at lig_feature_dims in process_mols.py to see what features we are talking about.
+# num_A_feats: None # leave as None to use all ligand features. Have a look at lig_feature_dims in process_mols.py to see what features we are talking about. If this is 1, only the first of those will be used.
+normalize_coordinate_update: True
+weight_sharing: False
+device: 'cuda'
+
+# CG Layer Specific
+skip_weight_v: 0.9

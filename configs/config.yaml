@@ -1,0 +1,37 @@
+# my_config.yaml
+defaults:
+  - encoder: small #medium #small
+  - decoder: small #medium #small
+  - vae: base
+  - optimizer: base
+  - losses: base
+  - data: base
+
+coordinates: delta #absolute # or delta or double
+
+hydra:
+  job:
+    env_set: 
+      CUDA_VISIBLE_DEVICES: 8
+  run:
+    dir: outputs/${wandb.name}_${now:%Y-%m-%d_%H-%M-%S}
+  job_logging:
+      version: 1
+      formatters:
+        simple:
+          format: '[%(filename)s] : [%(funcName)s] : %(message)s' #[%(levelname)s] : ...
+      handlers:
+        console:
+          class: logging.StreamHandler
+          formatter: simple
+          level: INFO
+          stream: ext://sys.stdout
+      root:
+        level: INFO
+        handlers: [console, file]
+        propagate: no
+
+wandb:
+  project: MCG
+  name: ar_delta_test
+  notes: testing data + local benchmarking
