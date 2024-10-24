@@ -2,7 +2,7 @@
 
 Implementation of [CoarsenConf](https://arxiv.org/pdf/2306.14852.pdf) by D. Reidenbach* and A. Krishnapriyan.
 
-CoarsenConf is a coarse grained variational auto encoder for molecular conformer generation on the GEOM-DRUGS dataset.
+CoarsenConf is a coarse grained variational auto encoder for molecular conformer generation.
 
 If you have questions, don't hesitate to open an issue or send us an email at dreidenbach@berkeley.edu
 
